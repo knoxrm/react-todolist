@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import TodoItemList from './TodoItemList'
+import { v4 as uuidv4 } from "uuid"
 
 
 class Todo extends Component {
@@ -21,14 +23,31 @@ class Todo extends Component {
         })
     }
 
+    changeCheckbox = (id) => {
+        let List = this.state.TodoList.map((i) => {
+            if (i.id===id) {
+                i.completed = !i.completed
+                return i
+            }
+            return i
+        })
+        this.setState({
+            TodoList: List
+        })
+    }
+
 
     handleElementSubmit = (event) => {
+        let newTodo = {
+            id: uuidv4(),
+            title: this.state.element,
+            completed: false
+        }
         this.setState({
-            TodoList: [...this.state.TodoList, this.state.element]
+            TodoList: [...this.state.TodoList, newTodo] 
         })
         event.preventDefault();
     }
-
 
 
     render() {
@@ -43,12 +62,7 @@ class Todo extends Component {
                     </form>
                 </div>
                 <div>
-                    {this.state.TodoList.map(item => (
-                        <div>
-                            <input type="checkbox" />
-                            <label>{item}</label>
-                        </div>
-                    ))}
+                    <TodoItemList List={this.state.TodoList} changeCheckboxProp={this.changeCheckbox} />
                 </div>
             </div>
         )
