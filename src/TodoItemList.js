@@ -7,16 +7,17 @@ class TodoItemList extends Component {
         this.state = {}
     }
 
+
     render() {
         return ( 
             <div>
                 {this.props.List.map(item => (
                     <div key={item.id}>
                         <input type="checkbox" 
-                        checked={item.completed} 
-                        onChange={() => {this.props.changeCheckboxProp(item.id)}}
+                            checked={item.completed} 
+                            onChange={() => {this.props.changeCheckboxProp(item.id)}} 
                         />
-                        <label>{item.title}</label>
+                        {this.props.putStrikeThroughProp(item)}
                     </div>
                 ))}
             </div>

@@ -37,6 +37,14 @@ class Todo extends Component {
     }
 
 
+    putStrikeThrough = (item) => {
+        if (item.completed) {
+            return <label><del>{item.title}</del></label> 
+        }
+        return <label>{item.title}</label>
+    }
+
+
     handleElementSubmit = (event) => {
         let newTodo = {
             id: uuidv4(),
@@ -62,7 +70,10 @@ class Todo extends Component {
                     </form>
                 </div>
                 <div>
-                    <TodoItemList List={this.state.TodoList} changeCheckboxProp={this.changeCheckbox} />
+                    <TodoItemList List={this.state.TodoList} 
+                    changeCheckboxProp={this.changeCheckbox} 
+                    putStrikeThroughProp={this.putStrikeThrough}
+                    />
                 </div>
             </div>
         )
