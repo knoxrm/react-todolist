@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TodoItemList from './TodoItemList'
 import { v4 as uuidv4 } from "uuid"
+import * as Mui from '@material-ui/core'
 
 
 class Todo extends Component {
@@ -61,13 +62,22 @@ class Todo extends Component {
     render() {
         return (
             <div>
+                <container fixed>
                 <div>
-                    <form onSubmit={this.handleElementSubmit}>
-                        <label>
-                            <input type="text" name={this.state.element} onChange={this.handleElementChange} />
-                        </label>
-                        <input type="submit" value="Submit" />
-                    </form>
+                    <Mui.FormLabel onSubmit={this.handleElementSubmit}>
+                        <Mui.Grid
+                          container
+                          direction="row"
+                          justifyContent="center"
+                          alignItems="center"
+                        >
+                            <label>
+                                { /* <input type="text" name={this.state.element} onChange={this.handleElementChange} /> */}
+                                    <Mui.TextField id="standard-basic" justify=""onChange={this.handleElementChange}/>
+                            </label>
+                            <input type="submit" value="Submit" />
+                        </Mui.Grid>
+                    </Mui.FormLabel>
                 </div>
                 <div>
                     <TodoItemList List={this.state.TodoList} 
@@ -75,6 +85,7 @@ class Todo extends Component {
                     putStrikeThroughProp={this.putStrikeThrough}
                     />
                 </div>
+                </container>
             </div>
         )
     }

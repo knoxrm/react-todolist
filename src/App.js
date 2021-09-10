@@ -1,10 +1,13 @@
 import React from 'react';
 import Todo from './Todo'
+import * as Mui from '@material-ui/core'
 
 function App() {
   return (
     <div>
-        <Todo />
+        <Mui.Container fixed>
+            <Todo />
+        </Mui.Container>
     </div>
   );
 }
