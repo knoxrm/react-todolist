@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import TodoItemList from './TodoItemList'
 import { v4 as uuidv4 } from "uuid"
-import * as Mui from '@material-ui/core'
-
+import { Container, Button, TextField, Box} from '@mui/material'
 
 class Todo extends Component {
     constructor(props) {
@@ -59,33 +58,39 @@ class Todo extends Component {
     }
 
 
+
     render() {
         return (
             <div>
-                <container fixed>
-                <div>
-                    <Mui.FormLabel onSubmit={this.handleElementSubmit}>
-                        <Mui.Grid
-                          container
-                          direction="row"
-                          justifyContent="center"
-                          alignItems="center"
-                        >
-                            <label>
-                                { /* <input type="text" name={this.state.element} onChange={this.handleElementChange} /> */}
-                                    <Mui.TextField id="standard-basic" justify=""onChange={this.handleElementChange}/>
-                            </label>
-                            <input type="submit" value="Submit" />
-                        </Mui.Grid>
-                    </Mui.FormLabel>
+                <Container fixed>
+                <div classname="box">
+                    <Box sx={{mt:"4rem"}} 
+                        component="form"
+                        noValidate
+                        autoComplete="off"
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                    > 
+                        <div className="alignment">
+                            <div>
+                                <TextField id="standard-basic" style = {{width: "50rem"}} onChange={this.handleElementChange}/>
+                            </div>
+                            <div className="button-padding">
+                                <Button variant="contained" onClick={this.handleElementSubmit}>
+                                    Submit
+                                </Button>
+                            </div>
+                        </div>
+                    </Box>
                 </div>
                 <div>
                     <TodoItemList List={this.state.TodoList} 
-                    changeCheckboxProp={this.changeCheckbox} 
-                    putStrikeThroughProp={this.putStrikeThrough}
+                        changeCheckboxProp={this.changeCheckbox} 
+                        putStrikeThroughProp={this.putStrikeThrough}
                     />
                 </div>
-                </container>
+                </Container>
             </div>
         )
     }

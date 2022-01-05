@@ -1,6 +1,6 @@
 import React from 'react';
 import Todo from './Todo'
-import * as Mui from '@material-ui/core'
+import * as Mui from '@mui/material'
 
 function App() {
   return (

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Grid from '@mui/material/Grid'
+import Checkbox from '@mui/material/Checkbox'
 
 class TodoItemList extends Component {
     constructor(props) {
@@ -13,11 +15,15 @@ class TodoItemList extends Component {
             <div>
                 {this.props.List.map(item => (
                     <div key={item.id}>
-                        <input type="checkbox" 
-                            checked={item.completed} 
-                            onChange={() => {this.props.changeCheckboxProp(item.id)}} 
-                        />
-                        {this.props.putStrikeThroughProp(item)}
+                        <Grid container justifyContent="center">
+                            <Grid item xs={4}>
+                                <Checkbox 
+                                    checked={item.completed} 
+                                    onChange={() => {this.props.changeCheckboxProp(item.id)}} 
+                                />
+                                {this.props.putStrikeThroughProp(item)}
+                            </Grid>
+                        </Grid>
                     </div>
                 ))}
             </div>
