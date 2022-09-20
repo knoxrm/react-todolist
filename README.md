@@ -1,11 +1,7 @@
 # React to-do List
 A to-do list project to learn fundamentals of react framework. 
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### Instructions to run
+## Instructions to run
 Run the following command in console
 
 ```sh
