@@ -68,13 +68,14 @@ class Todo extends Component {
                         component="form"
                         noValidate
                         autoComplete="off"
-                        display="flex"
-                        justifyContent="center"
-                        alignItems="center"
                     > 
                         <div className="alignment">
                             <div>
-                                <TextField id="standard-basic" style = {{width: "50rem"}} onChange={this.handleElementChange}/>
+                                <TextField id="standard-basic" style = {{width: "50rem"}} 
+                                display="flex" 
+                                justifyContent="center"
+                                alignItems="center"
+                                onChange={this.handleElementChange}/>
                             </div>
                             <div className="button-padding">
                                 <Button variant="contained" onClick={this.handleElementSubmit}>
@@ -88,6 +89,9 @@ class Todo extends Component {
                     <TodoItemList List={this.state.TodoList} 
                         changeCheckboxProp={this.changeCheckbox} 
                         putStrikeThroughProp={this.putStrikeThrough}
+                        display="flex" 
+                        justifyContent="left"
+                        alignItems="left"
                     />
                 </div>
                 </Container>

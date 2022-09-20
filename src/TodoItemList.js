@@ -15,7 +15,7 @@ class TodoItemList extends Component {
             <div>
                 {this.props.List.map(item => (
                     <div key={item.id}>
-                        <Grid container justifyContent="center">
+                        <Grid container justifyContent="left">
                             <Grid item xs={4}>
                                 <Checkbox 
                                     checked={item.completed} 
