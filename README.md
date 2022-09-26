@@ -16,4 +16,4 @@ You will also see any lint errors in the console.
 
 Use the submit button instead of hitting the enter key.
 
-![[screenshot.png]]
+![](screenshot.png)
